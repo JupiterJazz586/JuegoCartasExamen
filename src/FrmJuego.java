@@ -3,6 +3,7 @@ import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
@@ -11,6 +12,7 @@ public class FrmJuego extends JFrame {
     JPanel pnlJugador1, pnlJugador2;
     private Jugador jugador1 = new Jugador();
     private Jugador jugador2 = new Jugador();
+    JTabbedPane tpJugadores;
 
     public FrmJuego() {
         setTitle("Juguemos al apuntado!");
@@ -26,7 +28,7 @@ public class FrmJuego extends JFrame {
         btnVerificar.setBounds(120, 10, 100, 25);
         add(btnVerificar);
 
-        JTabbedPane tpJugadores = new JTabbedPane();
+        tpJugadores = new JTabbedPane();
         tpJugadores.setBounds(10, 40, getWidth() - 40, 150);
         add(tpJugadores);
 
@@ -55,6 +57,12 @@ public class FrmJuego extends JFrame {
     }
 
     private void verificar() {
-
+        String resultado = "";
+        if (tpJugadores.getSelectedIndex() == 0) {
+            resultado = jugador1.getGrupos();
+        } else {
+            resultado = jugador2.getGrupos();
+        }
+        JOptionPane.showMessageDialog(null, resultado);
     }
 }

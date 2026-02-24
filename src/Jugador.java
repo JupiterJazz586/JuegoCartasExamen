@@ -5,6 +5,9 @@ import javax.swing.JPanel;
 public class Jugador {
 
     private final int TOTAL_CARTAS = 10;
+    private final int MARGEN_IZQUIERDA = 10;
+    private final int DISTANCIA_ENTRE_CARTAS = 50;
+    private final int MARGEN_SUPERIOR = 10;
 
     private Random r = new Random();
     private Carta[] cartas = new Carta[TOTAL_CARTAS];
@@ -17,9 +20,40 @@ public class Jugador {
 
     public void mostrar(JPanel pnl) {
         pnl.removeAll();
-        for (int i = 0; i < TOTAL_CARTAS; i++) {
-            cartas[i].mostrar(i*50, 10, pnl);
+        pnl.setLayout(null);
+        int posicion = MARGEN_IZQUIERDA + DISTANCIA_ENTRE_CARTAS * (TOTAL_CARTAS - 1);
+        for (Carta andrea : cartas) {
+            andrea.mostrar(posicion, MARGEN_SUPERIOR, pnl);
+            posicion -= DISTANCIA_ENTRE_CARTAS;
         }
         pnl.repaint();
+    }
+
+    public String getGrupos() {
+        String resultado = "No se encontraron grupos";
+
+        int[] contadores = new int[NombreCarta.values().length];
+        for (Carta carta : cartas) {
+            contadores[carta.getNombre().ordinal()]++;
+        }
+        boolean hayGrupos = false;
+        for (int i = 0; i < contadores.length; i++) {
+            if (contadores[i] >= 2) {
+                hayGrupos = true;
+                break;
+            }
+        }
+        if (hayGrupos) {
+            resultado = "Se encontraron los siguientes grupos:\n";
+            int indice = 0;
+            for (int contador : contadores) {
+                if (contador >= 2) {
+                    resultado += Grupo.values()[contador].toString() + " de " + NombreCarta.values()[indice].toString()
+                            + "\n";
+                }
+                indice++;
+            }
+        }
+        return resultado;
     }
 }
