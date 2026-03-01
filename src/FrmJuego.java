@@ -15,7 +15,7 @@ public class FrmJuego extends JFrame {
     JTabbedPane tpJugadores;
 
     public FrmJuego() {
-        setTitle("Juguemos al apuntado!");
+        setTitle("Juguemos al apuntado");
         setSize(600, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
@@ -57,12 +57,9 @@ public class FrmJuego extends JFrame {
     }
 
     private void verificar() {
-        String resultado = "";
-        if (tpJugadores.getSelectedIndex() == 0) {
-            resultado = jugador1.getGrupos();
-        } else {
-            resultado = jugador2.getGrupos();
-        }
+        Jugador j = tpJugadores.getSelectedIndex() == 0 ? jugador1 : jugador2;
+        String resultado = j.getGrupos() + "\n" + j.getEscaleras();
+        resultado += "\nPuntaje: " + j.getPuntaje();
         JOptionPane.showMessageDialog(null, resultado);
     }
 }
