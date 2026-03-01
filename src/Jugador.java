@@ -131,8 +131,14 @@ public class Jugador {
                 NombreCarta n = cartas[i].getNombre();
                 switch (n) {
                     case AS:
+                        puntaje += 10;
+                        break;
                     case JACK:
+                        puntaje += 10;
+                        break;
                     case QUEEN:
+                        puntaje += 10;
+                        break;
                     case KING:
                         puntaje += 10;
                         break;
