@@ -120,10 +120,9 @@ public class Jugador {
         return s.toString();
     }
 
-    /**
-     * Calcula el puntaje del jugador con base en las cartas que no forman grupo ni escalera.
-     * Asigna valor 10 a AS, JACK, QUEEN y KING; para las demás cartas usa su valor numérico.
-     */
+    
+     //  Calcula el puntaje del jugador
+
     public int getPuntaje() {
         boolean[] usados = obtenerCartasUsadasEnFiguras();
         int puntaje = 0;
@@ -138,7 +137,7 @@ public class Jugador {
                         puntaje += 10;
                         break;
                     default:
-                        // ordinal inicia en 0 para AS, por eso sumamos 1
+                        
                         puntaje += n.ordinal() + 1;
                         break;
                 }
@@ -147,10 +146,9 @@ public class Jugador {
         return puntaje;
     }
 
-    /**
-     * Indica qué posiciones del arreglo de cartas están incluidas en grupos o escaleras.
-     * Se usa para excluirlas del cómputo del puntaje.
-     */
+   
+    //  Indica qué posiciones del arreglo de cartas están incluidas en grupos o escalerass
+
     private boolean[] obtenerCartasUsadasEnFiguras() {
         boolean[] usados = new boolean[cartas.length];
 
