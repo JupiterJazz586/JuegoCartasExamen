@@ -4,10 +4,10 @@ import javax.swing.JPanel;
 
 public class Jugador {
 
-    private final int TOTAL_CARTAS = 10;
-    private final int MARGEN_IZQUIERDA = 10;
-    private final int DISTANCIA_ENTRE_CARTAS = 50;
-    private final int MARGEN_SUPERIOR = 10;
+    private int TOTAL_CARTAS = 10;
+    private  int MARGEN_IZQUIERDA = 10;
+    private  int DISTANCIA_ENTRE_CARTAS = 50;
+    private  int MARGEN_SUPERIOR = 10;
 
     private Random r = new Random();
     private Carta[] cartas = new Carta[TOTAL_CARTAS];
@@ -29,9 +29,8 @@ public class Jugador {
         pnl.repaint();
     }
 
-    /**
-     * Devuelve una descripción de los grupos encontrados (pares, ternas, etc.).
-     */
+    // Devuelve una descripción de los grupos encontrados
+     
     public String getGrupos() {
         String resultado = "No se encontraron grupos";
 
@@ -60,10 +59,9 @@ public class Jugador {
         return resultado;
     }
 
-    /**
-     * Devuelve una descripción de las escaleras encontradas (secuencias de al menos 4 cartas
-     * consecutivas de la misma pinta).
-     */
+
+    //  devolvemos una descripción de las escaleras encontradas (secuencias de al menos 4 cartas consecutivas de la misma pinta).
+    
     public String getEscaleras() {
         String resultado = "No se encontraron escaleras";
         boolean hayEscalera = false;
@@ -85,7 +83,7 @@ public class Jugador {
             int start = 0;
             for (int j = 1; j < indices.size(); j++) {
                 int prev = cartas[indices.get(j - 1)].getNombre().ordinal();
-                int curr = cartas[indices.get(j)].getNombre().ordinal();
+            int curr = cartas[indices.get(j)].getNombre().ordinal();
                 if (curr == prev + 1) {
                     count++;
                 } else {

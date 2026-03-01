@@ -1,6 +1,4 @@
 import java.awt.Color;
-import java.util.Random;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -9,7 +7,9 @@ import javax.swing.JTabbedPane;
 
 public class FrmJuego extends JFrame {
 
-    JPanel pnlJugador1, pnlJugador2;
+    JPanel pnlJugador1;
+    JPanel pnlJugador2;
+    
     private Jugador jugador1 = new Jugador();
     private Jugador jugador2 = new Jugador();
     JTabbedPane tpJugadores;
