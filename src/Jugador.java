@@ -143,7 +143,6 @@ public class Jugador {
                         puntaje += 10;
                         break;
                     default:
-                        
                         puntaje += n.ordinal() + 1;
                         break;
                 }
